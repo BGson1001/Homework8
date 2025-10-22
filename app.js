@@ -5,7 +5,7 @@ console.log("HW8 loaded");
 const $ = (sel, scope=document) => scope.querySelector(sel);
 const $$ = (sel, scope=document) => Array.from(scope.querySelectorAll(sel));
 
-// ===== Greeting (time-based) =====
+// ===== Greeting =====
 const NAME = "Logan Copelan";
 function timeGreeting(userName) {
   const h = new Date().getHours();
@@ -17,7 +17,7 @@ $("#greeting").textContent = timeGreeting(NAME);
 // Footer year
 $("#year").textContent = new Date().getFullYear();
 
-// ===== Step 1: Accept skills from the user and add to list =====
+// ===== Accept skills from the user and add to list =====
 const defaultSkills = [
   "Java", "Python", "Attention to detail", "Outgoing and friendly", "Hard worker", "Competitive", "Energetic"
 ];
@@ -64,7 +64,7 @@ addSkillBtn.addEventListener("click", () => {
   skillInput.focus();
 });
 
-// ===== Step 2 & 3: Projects with arrays, loop & comparator status =====
+// ===== Projects with arrays, loop & comparator status =====
 // Three parallel arrays as required
 const projectTitles = [
   "Classroom Tech Helper",
@@ -76,17 +76,17 @@ const projectDescriptions = [
   "Rebuilt portfolio with Bootstrap, accessibility fixes, and automated deploy pipeline.",
   "3D Unity prototype: grow plants to attract/tame animals; save/load basic progression."
 ];
-// Use ISO 8601 strings; some past, some future. Replace dummy dates as needed.
+
 const projectDeadlines = [
-  "2025-05-01", // past => Completed
-  "2025-12-01", // future => Ongoing
-  "2025-10-10"  // past => Completed
+  "2025-05-01", 
+  "2025-12-01", 
+  "2025-10-10"  
 ];
 
 function projectStatus(isoDate) {
   const today = new Date();
   const d = new Date(isoDate);
-  // clear time for an exact date comparison
+
   today.setHours(0,0,0,0);
   d.setHours(0,0,0,0);
   return d >= today ? "Ongoing" : "Completed";
@@ -116,22 +116,22 @@ function renderProjects() {
 }
 renderProjects();
 
-// ===== Step 4: Resume download tracker with dynamic count =====
+// ===== Resume download tracker with dynamic count =====
 const resumeLink = $("#resumeLink");
 const downloadCountEl = $("#downloadCount");
 let downloadCount = Number(localStorage.getItem("resumeDownloads") || "0");
 downloadCountEl.textContent = downloadCount.toString();
 
 resumeLink.addEventListener("click", () => {
-  // increment immediately on click; server download can't be tracked reliably client-side
+  
   downloadCount += 1;
   localStorage.setItem("resumeDownloads", String(downloadCount));
   downloadCountEl.textContent = String(downloadCount);
-  // optional user feedback
+  
   setTimeout(() => alert("Your resume is downloaded successfully!"), 300);
 });
 
-// ===== Step 5: Dynamically create tables for Experience & Education =====
+// Dynamically create tables for Experience & Education =====
 const experienceData = [
   { role: "Applebee’s Host", org: "Applebee’s", start: "2023-01", end: "2023-06" },
   { role: "Classroom Support", org: "NAU ITS", start: "2024-08", end: "2025-06" },
@@ -186,7 +186,7 @@ eduWrap.replaceChildren(
   )
 );
 
-// ===== Bonus: Theme toggle & user style controls =====
+// ===== Theme toggle & user style controls =====
 const themeToggleBtn = $("#themeToggle");
 const fontSizeInput = $("#fontSizeInput");
 const bgColorInput = $("#bgColorInput");
