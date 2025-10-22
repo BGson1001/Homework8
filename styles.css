@@ -1,0 +1,62 @@
+/* Homework 8 styles */
+:root{
+  --base-font-size: 16px;
+  --accent: #1a73e8;
+  --bg-color: #0f2027;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: var(--base-font-size);
+  line-height: 1.6;
+  transition: background-color .25s ease, color .25s ease;
+}
+
+.theme-dark {
+  background-color: #0b1418;
+  color: #e9eef3;
+}
+
+.theme-light {
+  background-color: #f7fafc;
+  color: #12212a;
+}
+
+.bg-gradient {
+  background: linear-gradient(90deg, var(--bg-color), #203a43, #2c5364);
+}
+
+a, .btn-primary {
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+}
+
+.card {
+  border: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.22);
+}
+
+.table {
+  background: transparent;
+}
+
+#skillList .list-group-item {
+  background-color: rgba(255,255,255,0.9);
+}
+
+.theme-dark #skillList .list-group-item {
+  background-color: rgba(255,255,255,0.08);
+  color: #e9eef3;
+  border-color: rgba(255,255,255,0.1);
+}
+
+footer {
+  margin-top: 2rem;
+}
